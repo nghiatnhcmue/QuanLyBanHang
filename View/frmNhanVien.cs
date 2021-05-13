@@ -41,6 +41,8 @@ namespace QL_BanHang.View
             txtSDT.DataBindings.Add("Text", dtgvDS.DataSource, "SDT");
             dpNamSinh.DataBindings.Clear();
             dpNamSinh.DataBindings.Add("Text", dtgvDS.DataSource, "NamSinh");
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
         private void loadCMB()
         {

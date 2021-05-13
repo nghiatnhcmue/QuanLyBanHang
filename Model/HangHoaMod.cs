@@ -35,15 +35,15 @@ namespace QL_BanHang.Model
         }
         public string MaHangHoa()
         {
-            int count;
-            cmd.CommandText = @"select count (*) from tb_HangHoa where MaHang != ''";
+            string tam;
+            cmd.CommandText = @"SELECT TOP 1 MaHang FROM tb_HangHoa ORDER BY MaHang DESC;";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
             {
                 con.OpenConn();
                 cmd.ExecuteNonQuery();
-                count = (int)cmd.ExecuteScalar() + 1;
+                tam = (string)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -52,14 +52,16 @@ namespace QL_BanHang.Model
                 con.CloseConn();
                 return "";
             }
-            string x = "" + count;
-            string ma = "";
-            for (int i = 0; i < 3 - x.Length; i++)
-            {
-                ma += "0";
-            }
-            ma += x;
-            return "HH" + ma;
+            string Max = tam.ToString().Substring(2);
+            int stt = int.Parse(Max);
+            string kq = "HH";
+            stt += 1;
+            string tmp = stt.ToString();
+            // Lắp các số 0 còn thiếu
+            for (int i = 0; i < (3 - tmp.Length); i++)
+                kq += "0";
+            kq += stt.ToString();
+            return kq;
         }
 
         public DataTable GetData(string dieukien)
@@ -85,7 +87,12 @@ namespace QL_BanHang.Model
 
         public bool AddData(HangHoaObj hhObj)
         {
-            cmd.CommandText = "Insert into tb_HangHoa values ('" + hhObj.MaHangHoa + "', N'" + hhObj.TenHangHoa + "'," + hhObj.DonGia + "," + hhObj.SoLuong + ",'" + hhObj.Anh + "')";
+            cmd.CommandText = "Insert into tb_HangHoa values ('" 
+                            + hhObj.MaHangHoa + "', N'" 
+                            + hhObj.TenHangHoa + "'," 
+                            + hhObj.DonGia + "," 
+                            + hhObj.SoLuong + ",'" 
+                            + hhObj.Anh + "')";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -103,9 +110,9 @@ namespace QL_BanHang.Model
             return false;
         }
 
-        public bool UpdData(HangHoaObj hhObj)
+        public bool UpdData(string ma, string ten, string sl, string dongia, string anh)
         {
-            cmd.CommandText = "Update tb_HangHoa set TenHang =  N'" + hhObj.TenHangHoa + "', SoLuong = " + hhObj.SoLuong + ", DonGia = " + hhObj.DonGia + " Where MaHang = '" + hhObj.MaHangHoa + "'";
+            cmd.CommandText = @"update tb_HangHoa set TenHang='"+ten.ToString()+"' ,SoLuong="+sl.ToString()+", DonGia = "+dongia.ToString()+", Anh='"+anh.ToString()+"' where MaHang='"+ma.ToString()+"'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -123,9 +130,11 @@ namespace QL_BanHang.Model
             return false;
         }
 
-        public bool UpdSL(string mahh, int SL)
+        public bool UpdSLH(string mahh, int SL)
         {
-            cmd.CommandText = "Update tb_HangHoa set  SoLuong = " + SL + " Where MaHang = '" + mahh + "'";
+            cmd.CommandText = "Update tb_HangHoa set  SoLuong = " 
+                                + SL + " Where MaHang = '" 
+                                + mahh + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -142,7 +151,27 @@ namespace QL_BanHang.Model
             }
             return false;
         }
+        public bool UpdSL(DataTable dt)
+        {
+            DataTable dthh = new DataTable();
+            dthh = GetData();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dthh.Rows.Count; j++)
+                {
+                    if (dt.Rows[i][1].ToString() == dthh.Rows[j][0].ToString())
+                    {
+                        int SLcu = int.Parse(dthh.Rows[j][3].ToString());
+                        int SLmoi = int.Parse(dthh.Rows[j][3].ToString()) - int.Parse(dt.Rows[i][3].ToString());
+                        if (!UpdSLH(dthh.Rows[j][0].ToString(), SLmoi))
+                            return false;
+                        break;
+                    }
+                }
 
+            }
+            return true;
+        }
         public bool DelData(string ma)
         {
             cmd.CommandText = "Delete tb_HangHoa Where MaHang = '" + ma + "'";

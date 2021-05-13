@@ -24,5 +24,13 @@ namespace QL_BanHang.Control
         {
             return ctMod.DelData(ma);
         }
+        public DataTable ThongKeHangHoa(string thang, string nam)
+        {
+            return ctMod.ThongKeHangHoa(thang, nam);
+        }
+        public DataTable ThongKeNhanVien(string thang, string nam)
+        {
+            return ctMod.ThongKeNhanVien(thang, nam);
+        }
     }
 }

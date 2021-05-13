@@ -77,6 +77,53 @@ namespace QL_BanHang.Model
             }
             return false;
         }
-        
+        public DataTable ThongKeHangHoa(string thang, string nam)
+        {
+            DataTable dt = new DataTable();
+            cmd.CommandText = @"select  hh.TenHang, sum(ct.SoLuong) as 'SoHangHoa'
+                                from tb_CTHD as ct, tb_HoaDon as hd, tb_HangHoa as hh
+                                where month(hd.NgayLap)='"+ thang +@"' and YEAR(hd.NgayLap)='" + nam +@"' and hd.MaHD=ct.MaHD and ct.MaHH=hh.MaHang
+                                group by hh.TenHang
+                                order by SoHangHoa desc";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return dt;
+        }
+        public DataTable ThongKeNhanVien(string thang, string nam)
+        {
+            DataTable dt = new DataTable();
+            cmd.CommandText = @"select nv.TenNV, sum(ct.SoLuong) as 'SoHangHoa'
+                                from tb_HoaDon as hd, tb_CTHD as ct, tb_NhanVien as nv
+                                where month(hd.NgayLap)='" + thang +@"' and YEAR(hd.NgayLap)='" + nam + @"' and hd.MaHD=ct.MaHD and nv.MaNV=hd.NguoiLap
+                                group by nv.TenNV
+                                order by SoHangHoa desc";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return dt;
+        }
     }
 }

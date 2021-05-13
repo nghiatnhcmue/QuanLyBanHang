@@ -29,10 +29,10 @@ namespace QL_BanHang.Control
             return nvMod.UpdData(khObj);
         }
 
-        public bool UpdDiem(KhachHangObj khObj)
+        /*public bool UpdDiem(KhachHangObj khObj)
         {
             return nvMod.UpdDiem(khObj);
-        }
+        }*/
 
         public bool DelData(string ma)
         {

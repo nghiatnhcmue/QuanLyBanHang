@@ -27,30 +27,17 @@ namespace QL_BanHang.Control
         {
             return hhMod.AddData(hhObj);
         }
-        public bool UpdData(HangHoaObj hhObj)
+        public bool UpdData(string ma, string ten, string sl, string dongia, string anh)
         {
-            return hhMod.UpdData(hhObj);
+            return hhMod.UpdData(ma,ten,sl,dongia,anh);
         }
         public bool UpdSL(DataTable dt)
         {
-            DataTable dthh = new DataTable();
-            dthh = hhMod.GetData();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                for (int j = 0; j < dthh.Rows.Count; j++)
-                {
-                    if (dt.Rows[i][1].ToString() == dthh.Rows[j][0].ToString())
-                    {
-                        int SLcu = int.Parse(dthh.Rows[j][3].ToString());
-                        int SLmoi = int.Parse(dthh.Rows[j][3].ToString()) - int.Parse(dt.Rows[i][3].ToString());
-                        if (!hhMod.UpdSL(dthh.Rows[j][0].ToString(), SLmoi))
-                            return false;
-                        break;
-                    }
-                }
-
-            }
-            return true;
+            return hhMod.UpdSL(dt);
+        }
+        public bool UpdSLH(string mahh, int SL)
+        {
+            return hhMod.UpdSLH(mahh, SL);
         }
         public bool DelData(string ma)
         {

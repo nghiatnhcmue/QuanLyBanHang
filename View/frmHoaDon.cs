@@ -103,8 +103,8 @@ namespace QL_BanHang.View
 
             hdObj.MaHoaDon = txtMa.Text.Trim();
             hdObj.NgayLap = dpNgayLap.Text.Trim();
-            hdObj.NguoiLap = "NV001";
-            hdObj.KhachHang = "KH001";
+            hdObj.NguoiLap = cmbNhanVien.SelectedValue.ToString();
+            hdObj.KhachHang = cmbKhachHang.SelectedValue.ToString();
         }
 
         private bool checktrung(string mahh)
@@ -186,7 +186,7 @@ namespace QL_BanHang.View
             addData(hdObj);
             if (hdCtr.AddData(hdObj))
             {
-                if (ctCtr.AddData(dtDSCT))
+                if (ctCtr.AddData(dtDSCT) && hhctr.UpdSL(dtDSCT) )
                     MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Thêm chi tiết không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -262,7 +262,7 @@ namespace QL_BanHang.View
             {
                 double gia = double.Parse(dt.Rows[0][2].ToString());
 
-                txtDonGia.Text = (gia * 1.1).ToString();
+                txtDonGia.Text = gia.ToString();
 
                 lbThanhTien.Text = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
             }

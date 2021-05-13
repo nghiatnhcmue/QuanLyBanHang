@@ -15,6 +15,12 @@ namespace QL_BanHang.View
         {
             InitializeComponent();
         }
+        string username;
+        public frmMenu(string _username)
+        {
+            username = _username;
+            InitializeComponent();
+        }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
@@ -56,9 +62,12 @@ namespace QL_BanHang.View
             this.Show();
         }
 
-        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnDoiPass_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            frmDoiPass f = new frmDoiPass(username);
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -90,7 +90,7 @@
             this.txtMa.Location = new System.Drawing.Point(123, 39);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(121, 26);
-            this.txtMa.TabIndex = 5;
+            this.txtMa.TabIndex = 1;
             // 
             // label7
             // 
@@ -118,7 +118,7 @@
             this.cmbGioiTinh.Location = new System.Drawing.Point(123, 75);
             this.cmbGioiTinh.Name = "cmbGioiTinh";
             this.cmbGioiTinh.Size = new System.Drawing.Size(121, 27);
-            this.cmbGioiTinh.TabIndex = 2;
+            this.cmbGioiTinh.TabIndex = 4;
             // 
             // label6
             // 
@@ -184,7 +184,7 @@
             this.txtSDT.MaxLength = 11;
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(130, 26);
-            this.txtSDT.TabIndex = 0;
+            this.txtSDT.TabIndex = 6;
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // txtDiaChi
@@ -196,7 +196,7 @@
             this.txtDiaChi.MaxLength = 50;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(218, 26);
-            this.txtDiaChi.TabIndex = 0;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtTen
             // 
@@ -205,7 +205,7 @@
             this.txtTen.MaxLength = 30;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(218, 26);
-            this.txtTen.TabIndex = 0;
+            this.txtTen.TabIndex = 2;
             // 
             // groupBox2
             // 

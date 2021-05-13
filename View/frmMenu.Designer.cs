@@ -34,6 +34,7 @@ namespace QL_BanHang.View
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnHangHoa = new System.Windows.Forms.Button();
+            this.btnDoiPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHoaDon
@@ -106,12 +107,24 @@ namespace QL_BanHang.View
             this.btnHangHoa.UseVisualStyleBackColor = false;
             this.btnHangHoa.Click += new System.EventHandler(this.btnHangHoa_Click);
             // 
+            // btnDoiPass
+            // 
+            this.btnDoiPass.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoiPass.Location = new System.Drawing.Point(578, 387);
+            this.btnDoiPass.Name = "btnDoiPass";
+            this.btnDoiPass.Size = new System.Drawing.Size(135, 51);
+            this.btnDoiPass.TabIndex = 10;
+            this.btnDoiPass.Text = "Đổi Mật Khẩu";
+            this.btnDoiPass.UseVisualStyleBackColor = true;
+            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDoiPass);
             this.Controls.Add(this.btnHangHoa);
             this.Controls.Add(this.btnThongKe);
             this.Controls.Add(this.btnHoaDon);
@@ -119,7 +132,6 @@ namespace QL_BanHang.View
             this.Controls.Add(this.btnNhanVien);
             this.Name = "frmMenu";
             this.Text = "frmMenu";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.ResumeLayout(false);
 
         }
@@ -130,5 +142,6 @@ namespace QL_BanHang.View
         private System.Windows.Forms.Button btnNhanVien;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnHangHoa;
+        private System.Windows.Forms.Button btnDoiPass;
     }
 }

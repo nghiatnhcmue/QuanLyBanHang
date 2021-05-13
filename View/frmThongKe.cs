@@ -62,5 +62,21 @@ namespace QL_BanHang.View
             DSHD_Load(hdCtr.GetData("select hd.MaHD, hd.NgayLap, nv.TenNV, kh.TenKH from tb_HoaDon hd, tb_KhachHang kh, tb_NhanVien nv where kh.MaKH = hd.KhachHang and nv.MaNV = hd.NguoiLap and hd.NguoiLap = " + "'" + hdObj.NguoiLap + "'"
                 + "and hd.NgayLap = CONVERT(DATE, '" + hdObj.NgayLap + "', 103)"), hdCtr.CountData("select count (*) from tb_HoaDon AS hd where MaHD != '' and hd.NguoiLap = " + "'" + hdObj.NguoiLap + "' and hd.NgayLap = CONVERT(DATE, '" + hdObj.NgayLap + "', 103)").ToString());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmThongKeHHtheoThang f = new frmThongKeHHtheoThang();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmThongKeNVtheoThang f = new frmThongKeNVtheoThang();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }

@@ -48,7 +48,6 @@
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
@@ -56,9 +55,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMa = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtDiem = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDS)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -96,7 +93,7 @@
             this.cmbGioiTinh.Location = new System.Drawing.Point(136, 74);
             this.cmbGioiTinh.Name = "cmbGioiTinh";
             this.cmbGioiTinh.Size = new System.Drawing.Size(85, 27);
-            this.cmbGioiTinh.TabIndex = 2;
+            this.cmbGioiTinh.TabIndex = 4;
             // 
             // label6
             // 
@@ -206,8 +203,7 @@
             this.NamSinh,
             this.DiaChi,
             this.SDT,
-            this.Email,
-            this.Diem});
+            this.Email});
             this.dtgvDS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvDS.Location = new System.Drawing.Point(3, 22);
             this.dtgvDS.Name = "dtgvDS";
@@ -265,13 +261,6 @@
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 
-            // Diem
-            // 
-            this.Diem.DataPropertyName = "Diem";
-            this.Diem.HeaderText = "Điểm";
-            this.Diem.Name = "Diem";
-            this.Diem.ReadOnly = true;
-            // 
             // txtSDT
             // 
             this.txtSDT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -280,7 +269,7 @@
             this.txtSDT.MaxLength = 11;
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(130, 26);
-            this.txtSDT.TabIndex = 0;
+            this.txtSDT.TabIndex = 6;
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // txtDiaChi
@@ -292,7 +281,7 @@
             this.txtDiaChi.MaxLength = 50;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(150, 26);
-            this.txtDiaChi.TabIndex = 0;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtTen
             // 
@@ -301,7 +290,7 @@
             this.txtTen.MaxLength = 30;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(150, 26);
-            this.txtTen.TabIndex = 0;
+            this.txtTen.TabIndex = 2;
             // 
             // btnLuu
             // 
@@ -336,7 +325,6 @@
             this.groupBox1.Controls.Add(this.txtMa);
             this.groupBox1.Controls.Add(this.dpNamSinh);
             this.groupBox1.Controls.Add(this.cmbGioiTinh);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
@@ -344,7 +332,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtDiem);
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.txtSDT);
             this.groupBox1.Controls.Add(this.txtDiaChi);
@@ -361,17 +348,7 @@
             this.txtMa.Location = new System.Drawing.Point(136, 43);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(85, 26);
-            this.txtMa.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(750, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 19);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Điểm";
+            this.txtMa.TabIndex = 1;
             // 
             // label7
             // 
@@ -382,17 +359,6 @@
             this.label7.Size = new System.Drawing.Size(42, 19);
             this.label7.TabIndex = 1;
             this.label7.Text = "Email";
-            // 
-            // txtDiem
-            // 
-            this.txtDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDiem.Enabled = false;
-            this.txtDiem.Location = new System.Drawing.Point(797, 71);
-            this.txtDiem.MaxLength = 11;
-            this.txtDiem.Name = "txtDiem";
-            this.txtDiem.Size = new System.Drawing.Size(134, 26);
-            this.txtDiem.TabIndex = 0;
-            this.txtDiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiem_KeyPress);
             // 
             // txtEmail
             // 
@@ -450,9 +416,7 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtDiem;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
@@ -462,6 +426,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Diem;
     }
 }

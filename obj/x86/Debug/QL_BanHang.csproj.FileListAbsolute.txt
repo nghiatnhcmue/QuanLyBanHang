@@ -50,3 +50,21 @@ D:\QL_BanHang\obj\x86\Debug\QL_BanHang.exe
 D:\QL_BanHang\obj\x86\Debug\QL_BanHang.pdb
 D:\QL_BanHang\obj\x86\Debug\QL_BanHang.csprojAssemblyReference.cache
 D:\QL_BanHang\obj\x86\Debug\QL_BanHang.View.frmLogin.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.csprojAssemblyReference.cache
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.exe
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.pdb
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\bin\Debug\QL_BanHang.exe
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\bin\Debug\QL_BanHang.pdb
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.Properties.Resources.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmHangHoa.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmHoaDon.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmKhachHang.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmMenu.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmNhanVien.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmThongKe.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.csproj.GenerateResource.cache
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.csproj.CoreCompileInputs.cache
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmLogin.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmDoiPass.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmThongKeHHtheoThang.resources
+C:\Users\Ngoc Nghia\Downloads\Compressed\QuanLyBanHang-main\obj\x86\Debug\QL_BanHang.View.frmThongKeNVtheoThang.resources

@@ -47,6 +47,8 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbGiamGia = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtgvDSHH = new System.Windows.Forms.DataGridView();
             this.MaHD1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,7 +150,7 @@
             this.cmbNhanVien.Location = new System.Drawing.Point(398, 31);
             this.cmbNhanVien.Name = "cmbNhanVien";
             this.cmbNhanVien.Size = new System.Drawing.Size(173, 27);
-            this.cmbNhanVien.TabIndex = 5;
+            this.cmbNhanVien.TabIndex = 2;
             // 
             // dpNgayLap
             // 
@@ -158,7 +160,7 @@
             this.dpNgayLap.Location = new System.Drawing.Point(141, 70);
             this.dpNgayLap.Name = "dpNgayLap";
             this.dpNgayLap.Size = new System.Drawing.Size(130, 26);
-            this.dpNgayLap.TabIndex = 4;
+            this.dpNgayLap.TabIndex = 3;
             // 
             // cmbKhachHang
             // 
@@ -167,7 +169,7 @@
             this.cmbKhachHang.Location = new System.Drawing.Point(398, 73);
             this.cmbKhachHang.Name = "cmbKhachHang";
             this.cmbKhachHang.Size = new System.Drawing.Size(173, 27);
-            this.cmbKhachHang.TabIndex = 2;
+            this.cmbKhachHang.TabIndex = 4;
             // 
             // label4
             // 
@@ -215,7 +217,7 @@
             this.txtMa.Location = new System.Drawing.Point(141, 31);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(130, 26);
-            this.txtMa.TabIndex = 0;
+            this.txtMa.TabIndex = 1;
             this.txtMa.TextChanged += new System.EventHandler(this.txtMa_TextChanged);
             // 
             // groupBox2
@@ -239,7 +241,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 58);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Tạo mới hóa đơn";
+            this.btnAdd.Text = "Tạo";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -251,7 +253,7 @@
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 58);
             this.btnDel.TabIndex = 2;
-            this.btnDel.Text = "Xóa hóa đơn";
+            this.btnDel.Text = "Xóa";
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
@@ -263,7 +265,7 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 58);
             this.btnPrint.TabIndex = 2;
-            this.btnPrint.Text = "In hóa đơn";
+            this.btnPrint.Text = "In";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -271,6 +273,8 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.lbGiamGia);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.cmbHH);
             this.groupBox3.Controls.Add(this.label5);
@@ -289,6 +293,27 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi tiết hóa đơn";
+            // 
+            // lbGiamGia
+            // 
+            this.lbGiamGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbGiamGia.AutoSize = true;
+            this.lbGiamGia.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGiamGia.ForeColor = System.Drawing.Color.Blue;
+            this.lbGiamGia.Location = new System.Drawing.Point(416, 95);
+            this.lbGiamGia.Name = "lbGiamGia";
+            this.lbGiamGia.Size = new System.Drawing.Size(20, 22);
+            this.lbGiamGia.TabIndex = 6;
+            this.lbGiamGia.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(328, 95);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 19);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Giảm giá";
             // 
             // groupBox4
             // 
@@ -363,7 +388,7 @@
             this.cmbHH.Location = new System.Drawing.Point(146, 25);
             this.cmbHH.Name = "cmbHH";
             this.cmbHH.Size = new System.Drawing.Size(309, 27);
-            this.cmbHH.TabIndex = 2;
+            this.cmbHH.TabIndex = 5;
             this.cmbHH.SelectedIndexChanged += new System.EventHandler(this.cmbHH_SelectedIndexChanged);
             // 
             // label5
@@ -406,7 +431,7 @@
             this.txtSL.Location = new System.Drawing.Point(420, 61);
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(35, 26);
-            this.txtSL.TabIndex = 0;
+            this.txtSL.TabIndex = 6;
             this.txtSL.Text = "1";
             this.txtSL.TextChanged += new System.EventHandler(this.txtSL_TextChanged);
             // 
@@ -479,7 +504,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 58);
             this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Lưu Hóa Đơn";
+            this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -491,7 +516,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 58);
             this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Hủy thao tác";
+            this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -566,5 +591,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
+        private System.Windows.Forms.Label lbGiamGia;
+        private System.Windows.Forms.Label label10;
     }
 }

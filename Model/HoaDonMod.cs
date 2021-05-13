@@ -118,15 +118,15 @@ namespace QL_BanHang.Model
         }
         public string MaHoaDon()
         {
-            int count;
-            cmd.CommandText = @"select count (*) from tb_HoaDon where MaHD != ''";
+            string tam;
+            cmd.CommandText = @"SELECT TOP 1 MaHD FROM tb_HoaDon ORDER BY MaHD DESC;";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
             {
                 con.OpenConn();
                 cmd.ExecuteNonQuery();
-                count = (int)cmd.ExecuteScalar() + 1;
+                tam = (string)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -135,14 +135,17 @@ namespace QL_BanHang.Model
                 con.CloseConn();
                 return "";
             }
-            string x = "" + count;
-            string ma = "";
-            for (int i = 0; i < 3 - x.Length; i++)
-            {
-                ma += "0";
-            }
-            ma += x;
-            return "HD" + ma;
+            if (tam == null) tam = "HD000";
+            string Max = tam.ToString().Substring(2);
+            int stt = int.Parse(Max);
+            string kq = "HD";
+            stt += 1;
+            string tmp = stt.ToString();
+            // Lắp các số 0 còn thiếu
+            for (int i = 0; i < (3 - tmp.Length); i++)
+                kq += "0";
+            kq += stt.ToString();
+            return kq;
         }
 
         public bool AddData(HoaDonObj hdObj)

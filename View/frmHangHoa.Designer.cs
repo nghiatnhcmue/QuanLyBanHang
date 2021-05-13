@@ -212,7 +212,7 @@
             this.txtTen.MaxLength = 30;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(175, 26);
-            this.txtTen.TabIndex = 0;
+            this.txtTen.TabIndex = 2;
             // 
             // txtDonGia
             // 
@@ -221,7 +221,7 @@
             this.txtDonGia.MaxLength = 50;
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(108, 26);
-            this.txtDonGia.TabIndex = 0;
+            this.txtDonGia.TabIndex = 4;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // label3
@@ -296,7 +296,7 @@
             this.txtMa.Location = new System.Drawing.Point(126, 29);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(132, 26);
-            this.txtMa.TabIndex = 19;
+            this.txtMa.TabIndex = 1;
             // 
             // btnMoAnh
             // 
@@ -306,7 +306,7 @@
             this.btnMoAnh.Location = new System.Drawing.Point(639, 81);
             this.btnMoAnh.Name = "btnMoAnh";
             this.btnMoAnh.Size = new System.Drawing.Size(145, 32);
-            this.btnMoAnh.TabIndex = 18;
+            this.btnMoAnh.TabIndex = 5;
             this.btnMoAnh.Text = "Thêm ảnh";
             this.btnMoAnh.UseVisualStyleBackColor = true;
             this.btnMoAnh.Click += new System.EventHandler(this.btnMoAnh_Click);
@@ -328,7 +328,7 @@
             this.txtSL.MaxLength = 50;
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(132, 26);
-            this.txtSL.TabIndex = 2;
+            this.txtSL.TabIndex = 3;
             this.txtSL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSL_KeyPress);
             // 
             // label1

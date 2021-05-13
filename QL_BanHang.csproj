@@ -57,6 +57,12 @@
     <Compile Include="Model\HoaDonMod.cs" />
     <Compile Include="Model\KhachHangMod.cs" />
     <Compile Include="Model\NhanVienMod.cs" />
+    <Compile Include="View\frmDoiPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDoiPass.Designer.cs">
+      <DependentUpon>frmDoiPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,18 @@
     <Compile Include="View\frmThongKe.Designer.cs">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmThongKeHHtheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThongKeHHtheoThang.Designer.cs">
+      <DependentUpon>frmThongKeHHtheoThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmThongKeNVtheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThongKeNVtheoThang.Designer.cs">
+      <DependentUpon>frmThongKeNVtheoThang.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,6 +133,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\frmDoiPass.resx">
+      <DependentUpon>frmDoiPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmHangHoa.resx">
       <DependentUpon>frmHangHoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmThongKe.resx">
       <DependentUpon>frmThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThongKeHHtheoThang.resx">
+      <DependentUpon>frmThongKeHHtheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThongKeNVtheoThang.resx">
+      <DependentUpon>frmThongKeNVtheoThang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

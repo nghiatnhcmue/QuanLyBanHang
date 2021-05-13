@@ -43,8 +43,6 @@ namespace QL_BanHang.View
             dpNamSinh.DataBindings.Add("Text", dtgvDS.DataSource, "NamSinh");
             txtEmail.DataBindings.Clear();
             txtEmail.DataBindings.Add("Text", dtgvDS.DataSource, "Email");
-            txtDiem.DataBindings.Clear();
-            txtDiem.DataBindings.Add("Text", dtgvDS.DataSource, "Diem");
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
         }
@@ -61,7 +59,6 @@ namespace QL_BanHang.View
             cmbGioiTinh.Enabled = e;
             dpNamSinh.Enabled = e;
             txtEmail.Enabled = e;
-            txtDiem.Enabled = e;
         }
 
         private void loadCMB()
@@ -80,7 +77,6 @@ namespace QL_BanHang.View
             dpNamSinh.Value = DateTime.Now.Date;
             loadCMB();
             txtEmail.Text = "";
-            txtDiem.Text="0";
         }
         public bool CheckData()
         {
@@ -130,7 +126,6 @@ namespace QL_BanHang.View
             kh.TenKhachHang = txtTen.Text.Trim();
             kh.NamSinh = dpNamSinh.Text;
             kh.Email = txtEmail.Text.Trim();
-            kh.Diem = int.Parse(txtDiem.Text.Trim());
         }
 
         private void btnThem_Click(object sender, EventArgs e)

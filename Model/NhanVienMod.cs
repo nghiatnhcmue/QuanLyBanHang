@@ -13,6 +13,69 @@ namespace QL_BanHang.Model
         ConnectToSQL con = new ConnectToSQL();
         SqlCommand cmd = new SqlCommand();
 
+        public bool Login(string username, string password)
+        {
+            DataTable dt = new DataTable();
+            cmd.CommandText = "SELECT * FROM tb_NhanVien WHERE MaNV = " + "\'" + username + "\'"
+                + "AND MatKhau = " + "\'" + password + "\'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+                return false;
+            }
+        }
+        public DataTable GetPass(string username)
+        {
+            DataTable dt = new DataTable();
+            cmd.CommandText = "SELECT * FROM tb_NhanVien WHERE MaNV = " + "\'" + username + "\'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return dt;
+        }
+        public bool DoiPass(NhanVienObj nvObj)
+        {
+            cmd.CommandText = "Update tb_NhanVien set MatKhau =  N'"
+                            + nvObj.MatKhau + "' Where MaNV = '"
+                            + nvObj.MaNhanVien + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return false;
+        }
         public DataTable GetData()
         {
             DataTable dt = new DataTable();
@@ -35,15 +98,15 @@ namespace QL_BanHang.Model
         }
         public string MaNhanVien()
         {
-            int count;
-            cmd.CommandText = @"select count (*) from tb_NhanVien where MaNV != ''";
+            string tam;
+            cmd.CommandText = @"SELECT TOP 1 MaNV FROM tb_NhanVien ORDER BY MaNV DESC;";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
             {
                 con.OpenConn();
                 cmd.ExecuteNonQuery();
-                count = (int)cmd.ExecuteScalar()+1;
+                tam = (string)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -52,14 +115,16 @@ namespace QL_BanHang.Model
                 con.CloseConn();
                 return "";
             }
-            string x = "" + count;
-            string ma = "";
-            for (int i = 0; i < 3 - x.Length; i++)
-            {
-                ma += "0";
-            }
-            ma += x;
-            return "NV" + ma;
+            string Max = tam.ToString().Substring(2);
+            int stt = int.Parse(Max);
+            string kq = "NV";
+            stt += 1;
+            string tmp = stt.ToString();
+            // Lắp các số 0 còn thiếu
+            for (int i = 0; i < (3 - tmp.Length); i++)
+                kq += "0";
+            kq += stt.ToString();
+            return kq;
         }
 
         public bool AddData(NhanVienObj nvObj)

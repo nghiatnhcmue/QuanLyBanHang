@@ -16,7 +16,7 @@ namespace QL_BanHang.Model
         public DataTable GetData()
         {
             DataTable dt = new DataTable();
-            cmd.CommandText = "select MaKH, TenKH, GioiTinh,NamSinh,DiaChi,SDT,Email,Diem from tb_KhachHang";
+            cmd.CommandText = "select MaKH, TenKH, GioiTinh,NamSinh,DiaChi,SDT,Email from tb_KhachHang";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -35,15 +35,15 @@ namespace QL_BanHang.Model
         }
         public string MaKhachHang()
         {
-            int count;
-            cmd.CommandText = @"select count (*) from tb_KhachHang where MaKH != ''";
+            string tam;
+            cmd.CommandText = @"SELECT TOP 1 MaKH FROM tb_KhachHang ORDER BY MaKH DESC;";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
             {
                 con.OpenConn();
                 cmd.ExecuteNonQuery();
-                count = (int)cmd.ExecuteScalar() + 1;
+                tam = (string)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -52,14 +52,16 @@ namespace QL_BanHang.Model
                 con.CloseConn();
                 return "";
             }
-            string x = "" + count;
-            string ma = "";
-            for (int i = 0; i < 3 - x.Length; i++)
-            {
-                ma += "0";
-            }
-            ma += x;
-            return "KH" + ma;
+            string Max = tam.ToString().Substring(2);
+            int stt = int.Parse(Max);
+            string kq = "KH";
+            stt += 1;
+            string tmp = stt.ToString();
+            // Lắp các số 0 còn thiếu
+            for (int i = 0; i < (3 - tmp.Length); i++)
+                kq += "0";
+            kq += stt.ToString();
+            return kq;
         }
 
         public bool AddData(KhachHangObj khObj)
@@ -67,7 +69,7 @@ namespace QL_BanHang.Model
             cmd.CommandText = "Insert into tb_KhachHang values ('" 
                             + khObj.MaKhachHang + "',N'" + khObj.TenKhachHang + "',N'" + khObj.GioiTinh + "',CONVERT(DATE,'" 
                             + khObj.NamSinh + "',103),N'" + khObj.DienThoai 
-                            + "',N'" + khObj.DiaChi + "',0,'"+ khObj.Email + "')";
+                            + "',N'" + khObj.DiaChi + "','"+ khObj.Email + "')";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -93,7 +95,7 @@ namespace QL_BanHang.Model
                             +khObj.NamSinh +"',103), DiaChi = N'"
                             +khObj.DiaChi +"',SDT = '"
                             +khObj.DienThoai +"',Email = '"
-                            +khObj.Email +"',Diem = '" +khObj.Diem +"' Where MaKH = '" 
+                            +khObj.Email +"' Where MaKH = '" 
                             +khObj.MaKhachHang +"'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
@@ -112,7 +114,7 @@ namespace QL_BanHang.Model
             return false;
         }
 
-        public bool UpdDiem(KhachHangObj khObj)
+        /*public bool UpdDiem(KhachHangObj khObj)
         {
             cmd.CommandText = "Update tb_KhachHang set Diem ='" + khObj.Diem + "' Where MaKH = '" + khObj.MaKhachHang + "'";
             cmd.CommandType = CommandType.Text;
@@ -130,7 +132,7 @@ namespace QL_BanHang.Model
                 con.CloseConn();
             }
             return false;
-        }
+        }*/
 
         public bool DelData(string ma)
         {

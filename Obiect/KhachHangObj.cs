@@ -8,13 +8,6 @@ namespace QL_BanHang.Obiect
     class KhachHangObj
     {
         string ma, ten, gioitinh, diachi, sdt, email, namsinh;
-        int diem;
-
-        public int Diem
-        {
-            get { return diem; }
-            set { diem = value; }
-        }
 
         public string DienThoai
         {
@@ -59,7 +52,7 @@ namespace QL_BanHang.Obiect
         }
 
         public KhachHangObj() { }
-        public KhachHangObj(string ma, string ten, string gioitinh, string namsinh, string diachi, string sdt, string email, int diem)
+        public KhachHangObj(string ma, string ten, string gioitinh, string namsinh, string diachi, string sdt, string email)
         {
             this.ma = ma;
             this.ten = ten;
@@ -68,7 +61,6 @@ namespace QL_BanHang.Obiect
             this.diachi = diachi;
             this.sdt = sdt;
             this.email = email;
-            this.diem = diem;
         }
     }
 }

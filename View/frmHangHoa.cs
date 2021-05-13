@@ -24,6 +24,7 @@ namespace QL_BanHang.View
 
         private void frmHangHoa_Load(object sender, EventArgs e)
         {
+            clearData();
             DataTable dtDS = new System.Data.DataTable();
             dtDS = hhCtr.GetData();
             dtgvDS.DataSource = dtDS;
@@ -35,7 +36,6 @@ namespace QL_BanHang.View
             txtMa.DataBindings.Add("Text", dtgvDS.DataSource, "MaHang");
             txtTen.DataBindings.Clear();
             txtTen.DataBindings.Add("Text", dtgvDS.DataSource, "TenHang");
-
             txtDonGia.DataBindings.Clear();
             txtDonGia.DataBindings.Add("Text", dtgvDS.DataSource, "DonGia");
             txtSL.DataBindings.Clear();
@@ -51,6 +51,7 @@ namespace QL_BanHang.View
             txtDonGia.Text = "";
             txtSL.Text = "";
             txtAnh.Text = "";
+            ShowAnh(txtAnh.Text.Trim());
         }
 
         private void addData(HangHoaObj hh)
@@ -84,14 +85,15 @@ namespace QL_BanHang.View
             clearData();
             DisEnl(true);
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa hàng hoá này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 if (hhCtr.DelData(txtMa.Text.Trim()))
+                {
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else
                     MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -107,6 +109,7 @@ namespace QL_BanHang.View
         private void btnLuu_Click(object sender, EventArgs e)
         {
             HangHoaObj hhObj = new HangHoaObj();
+            copyAnh(txtAnh.Text.Trim(), txtMa.Text.Trim());
             addData(hhObj);
             if (flagLuu == 0)
             {
@@ -117,14 +120,14 @@ namespace QL_BanHang.View
             }
             else if (flagLuu == 1)
             {
-                if (hhCtr.UpdData(hhObj))
+                if (hhCtr.UpdData(txtMa.Text.Trim(),txtTen.Text.Trim(),txtSL.Text.Trim(),txtDonGia.Text.Trim(),txtAnh.Text.Trim()))
                     MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Sửa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (hhCtr.UpdData(hhObj))
+                if (hhCtr.UpdSLH(txtMa.Text.Trim(), Int32.Parse(txtSL.Text.Trim())))
                     MessageBox.Show("Nhập hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Nhập hàng không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -168,14 +171,34 @@ namespace QL_BanHang.View
             btnHuy.Enabled = true;
             txtSL.Enabled = true;
         }
-
+        public static byte[] converterDemo(Image x)
+        {
+            ImageConverter _imageConverter = new ImageConverter();
+            byte[] xByte = (byte[])_imageConverter.ConvertTo(x, typeof(byte[]));
+            return xByte;
+        }
         private void ShowAnh(string filename)
         {
             if (filename != "")
             {
                 Image img = Image.FromFile(filename);
-                picHang.Image = img;
+                using (System.IO.Stream stream = new System.IO.MemoryStream(converterDemo(img)))
+                {
+                    picHang.Image = System.Drawing.Image.FromStream(stream);
+                    stream.Dispose();
+                }
             }
+        }
+        private void copyAnh(string filename, string maso)
+        {
+            string loaiFile = System.IO.Path.GetExtension(filename);
+            maso = maso + loaiFile;
+            string duongdan = System.IO.Path.Combine(@"D:\QL_BanHang\Picture", maso);
+            if (filename != duongdan)
+            {
+                System.IO.File.Copy(filename, duongdan, true);
+            }
+            txtAnh.Text = duongdan;
         }
         private void btnMoAnh_Click_1(object sender, EventArgs e)
         {
@@ -188,7 +211,6 @@ namespace QL_BanHang.View
                 ShowAnh(txtAnh.Text.Trim());
             }
         }
-
         private void btnMoAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
